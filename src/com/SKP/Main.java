@@ -138,6 +138,19 @@ public class Main {
                 .filter(g -> new BigDecimal(200).compareTo(g.price) > 0)
                 .map(g-> g.name)
                 .forEach(System.out::println);
+
+        // gra o najlepszej ocenie zawierająca literę a
+        double highestRanking = 0;
+        BoardGame bestGame = null;
+        for (BoardGame game : games) {
+            if (game.name.contains("a")) {
+                if (game.rating > highestRanking) {
+                    highestRanking = game.rating;
+                    bestGame = game;
+                }
+            }
+        }
+        System.out.println(bestGame.name);
     }
 
     private static void lazyStream(){
