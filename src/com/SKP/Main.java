@@ -51,7 +51,7 @@ public class Main {
         //createStream();
 
         //gry
-       // boardGamesStream();
+        boardGamesStream();
 
         //leniwe strumienie
        // lazyStream();
@@ -59,10 +59,10 @@ public class Main {
         //goodPractices();
 
         // zadamie z plikami
-        filesTxt();
+        //filesTxt();
 
         //wspolrzedne
-        points();
+       // points();
 
 
     }
@@ -140,6 +140,7 @@ public class Main {
                 .forEach(System.out::println);
 
         // gra o najlepszej ocenie zawierająca literę a
+        /*
         double highestRanking = 0;
         BoardGame bestGame = null;
         for (BoardGame game : games) {
@@ -150,6 +151,12 @@ public class Main {
                 }
             }
         }
+        System.out.println(bestGame.name);
+         */
+        BoardGame bestGame = games.stream()
+                .filter(g -> g.name.contains("a"))
+                .max(Comparator.comparingDouble(g -> g.rating)).get();
+
         System.out.println(bestGame.name);
     }
 
